@@ -1,0 +1,14 @@
+# Package Information for pkg-config
+
+prefix=/home/ccisn/vca/vcageneric/trunk/externals/OpenCV4.1.1.linux.x86/build/arm-obj_rel
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir_old=${prefix}/include/opencv4/opencv
+includedir_new=${prefix}/include/opencv4
+
+Name: OpenCV
+Description: Open Source Computer Vision Library
+Version: 4.1.1
+Libs: -L${exec_prefix}/lib -lopencv_dnn -lopencv_gapi -lopencv_highgui -lopencv_ml -lopencv_objdetect -lopencv_photo -lopencv_stitching -lopencv_video -lopencv_calib3d -lopencv_features2d -lopencv_flann -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc -lopencv_core
+Libs.private: -L${exec_prefix}/lib/opencv4/3rdparty -littnotify -llibprotobuf -lzlib -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibjasper -lIlmImf -lquirc -ltegra_hal -L/home/ccisn/vca/vcageneric/trunk/externals/OpenCV4.1.1.linux.x86/tmp_build_arm/lib -lade -ldl -lm -lpthread -lrt
+Cflags: -I${includedir_old} -I${includedir_new}
