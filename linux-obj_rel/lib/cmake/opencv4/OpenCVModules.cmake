@@ -16,7 +16,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_targetsDefined)
 set(_targetsNotDefined)
 set(_expectedTargets)
-foreach(_expectedTarget zlib libjpeg-turbo libtiff libwebp libjasper libpng IlmImf libprotobuf quirc ittnotify ade ocv.3rdparty.ffmpeg ocv.3rdparty.v4l opencv_core opencv_flann opencv_imgproc opencv_ml opencv_phase_unwrapping opencv_photo opencv_plot opencv_quality opencv_reg opencv_surface_matching opencv_xphoto opencv_dnn opencv_features2d opencv_fuzzy opencv_gapi opencv_hfs opencv_img_hash opencv_imgcodecs opencv_line_descriptor opencv_saliency opencv_videoio opencv_calib3d opencv_highgui opencv_objdetect opencv_rgbd opencv_shape opencv_structured_light opencv_text opencv_video opencv_videostab opencv_xfeatures2d opencv_ximgproc opencv_xobjdetect opencv_aruco opencv_bgsegm opencv_bioinspired opencv_ccalib opencv_datasets opencv_dnn_objdetect opencv_dpm opencv_face opencv_optflow opencv_stitching opencv_superres opencv_tracking opencv_stereo)
+foreach(_expectedTarget zlib libjpeg-turbo libtiff libwebp libjasper libpng IlmImf libprotobuf quirc ittnotify ade ocv.3rdparty.v4l opencv_core opencv_flann opencv_imgproc opencv_ml opencv_phase_unwrapping opencv_photo opencv_plot opencv_quality opencv_reg opencv_surface_matching opencv_xphoto opencv_dnn opencv_features2d opencv_fuzzy opencv_gapi opencv_hfs opencv_img_hash opencv_imgcodecs opencv_line_descriptor opencv_saliency opencv_videoio opencv_calib3d opencv_highgui opencv_objdetect opencv_rgbd opencv_shape opencv_structured_light opencv_text opencv_video opencv_videostab opencv_xfeatures2d opencv_ximgproc opencv_xobjdetect opencv_aruco opencv_bgsegm opencv_bioinspired opencv_ccalib opencv_datasets opencv_dnn_objdetect opencv_dpm opencv_face opencv_optflow opencv_stitching opencv_superres opencv_tracking opencv_stereo)
   list(APPEND _expectedTargets ${_expectedTarget})
   if(NOT TARGET ${_expectedTarget})
     list(APPEND _targetsNotDefined ${_expectedTarget})
@@ -98,16 +98,6 @@ set_target_properties(ittnotify PROPERTIES
 
 # Create imported target ade
 add_library(ade STATIC IMPORTED)
-
-# Create imported target ocv.3rdparty.ffmpeg
-add_library(ocv.3rdparty.ffmpeg INTERFACE IMPORTED)
-
-set_target_properties(ocv.3rdparty.ffmpeg PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "HAVE_FFMPEG"
-  INTERFACE_INCLUDE_DIRECTORIES "/home/jenkins/vca/vcageneric/trunk/externals/ffmpeg-4.0.1.linux.x86_64/OUT/include"
-  INTERFACE_LINK_LIBRARIES "/home/jenkins/vca/vcageneric/trunk/externals/ffmpeg-4.0.1.linux.x86_64/OUT/lib/libavformat.a;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/libz.so;/home/jenkins/vca/vcageneric/trunk/externals/ffmpeg-4.0.1.linux.x86_64/OUT/lib/libavcodec.a;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/libz.so;/home/jenkins/vca/vcageneric/trunk/externals/ffmpeg-4.0.1.linux.x86_64/OUT/lib/libx264.a;/usr/lib/x86_64-linux-gnu/libpthread.so;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/libdl.so;/home/jenkins/vca/vcageneric/trunk/externals/ffmpeg-4.0.1.linux.x86_64/OUT/lib/libswresample.a;/usr/lib/x86_64-linux-gnu/libm.so;/home/jenkins/vca/vcageneric/trunk/externals/ffmpeg-4.0.1.linux.x86_64/OUT/lib/libswscale.a;/usr/lib/x86_64-linux-gnu/libm.so;/home/jenkins/vca/vcageneric/trunk/externals/ffmpeg-4.0.1.linux.x86_64/OUT/lib/libavutil.a;/usr/lib/x86_64-linux-gnu/libm.so"
-  INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "/home/jenkins/vca/vcageneric/trunk/externals/ffmpeg-4.0.1.linux.x86_64/OUT/include"
-)
 
 # Create imported target ocv.3rdparty.v4l
 add_library(ocv.3rdparty.v4l INTERFACE IMPORTED)
@@ -262,7 +252,7 @@ set_target_properties(opencv_saliency PROPERTIES
 add_library(opencv_videoio STATIC IMPORTED)
 
 set_target_properties(opencv_videoio PROPERTIES
-  INTERFACE_LINK_LIBRARIES "opencv_core;opencv_imgproc;opencv_imgcodecs;\$<LINK_ONLY:dl>;\$<LINK_ONLY:m>;\$<LINK_ONLY:pthread>;\$<LINK_ONLY:rt>;\$<LINK_ONLY:ocv.3rdparty.v4l>;\$<LINK_ONLY:ocv.3rdparty.ffmpeg>"
+  INTERFACE_LINK_LIBRARIES "opencv_core;opencv_imgproc;opencv_imgcodecs;\$<LINK_ONLY:dl>;\$<LINK_ONLY:m>;\$<LINK_ONLY:pthread>;\$<LINK_ONLY:rt>;\$<LINK_ONLY:ocv.3rdparty.v4l>"
 )
 
 # Create imported target opencv_calib3d
